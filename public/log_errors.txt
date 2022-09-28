@@ -1,0 +1,205 @@
+Error al migrar nro: 107
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Materiales] ([codigo], [titulo], [resumen], [fechaPublicacion], [idioma], [observacion], [editorial_id], [pais_id], [clasificacion_id], [autor_id], [imagen_url], [numpaginas], [pdf_url], [tipomaterial]) values (3743, Gastroenterología y hepatología: Dispepsia no investigada documento de consenso sobre desinfección en endoscopia fibrogénesis y enfermedad inflatoria intestinal selección de candidatos para trasplante hepático, <p>Originales Características clinicopatológicas de la dispepsia no investigada en EspañaIncidencia y aspectos clinicoepidemiológicos de la colitis ulcerosa en el ßrea de influencia del Hospital Costa del Sol Observaciones clínicas Peritonitis bacteriana por Staphylococcus aureus resistente a meticilina en pacientes cirróticosAcantosis nigricans como manifestación inicial paraneoplßsica de adenocarcinoma gástrico Diferentes formas de presentación de una misma entidad clÝnica: gastroenteritis eosinofÝlicaCaso atÝpico de hemorragia digestiva masivaDocumento de consensoLimpieza y desinfección en endoscopia digestivaProgresos en gastroenterologÝaFibrogÚnesis y enfermedad inflamatoria intestinalProgresos en hepatologÝaSelección de candidatos para trasplante hepßticoCartas al directorHepatitis aguda colestßsica por omeprazolHepatotoxicidad asociada a hipÚrico (hierba de San Juan)</p>, 2007, es, , 25, 11, 7413, 5280, 601907.jpg, 0, http://www.elsevier.es/es-revista-gastroenterologia-hepatologia-14-numeros-anteriores, S))
+
+=================================================================================================================
+
+Error al migrar nro: 206
+
+=================================================================================================================
+
+Error al migrar nro: 207
+
+=================================================================================================================
+
+Error al migrar nro: 218
+
+=================================================================================================================
+
+Error al migrar nro: 476
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Ejemplares] ([codigo], [CodRFID], [CodBarras], [TipoPrestamo], [Ubicacion], [Material_Id], [Precio]) values (603277, r                                                                                                                                                                                                                                                                                                                                                         fac1fac2fac3fac4fac52a8a                                                                                                                , 603277, 1, , 15209, 0))
+
+=================================================================================================================
+
+Error al migrar nro: 731
+
+=================================================================================================================
+
+Error al migrar nro: 1105
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1126
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1127
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1128
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1133
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1134
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1135
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1137
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1138
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1139
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1140
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Universidad de Zulia Facultad de Medicina, Escuela de Medicina Departamento de Enfermedades Infecciosas y Tropicales, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1844
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1845
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1846
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1847
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1848
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1849
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1850
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1851
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1852
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1853
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1854
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1855
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1856
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1857
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1858
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1859
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1860
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1861
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1862
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organo Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1863
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1864
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, îrgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 1865
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, órgano Oficial de la Facultad de Ciencias de la Salud de la Universidad Mayor, de San Francisco Xavier, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 2549
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Ejemplares] ([codigo], [CodRFID], [CodBarras], [TipoPrestamo], [Ubicacion], [Material_Id], [Precio]) values (599495, 599496, 599497, 599498, 599499, 599500, 599501, 599502, rfac1fac2fac3fac4fac52e2, 599495, 599496, 599497, 599498, 599499, 599500, 599501, 599502, 1, , 17248, 0))
+
+=================================================================================================================
+
+Error al migrar nro: 2640
+Error: SQLSTATE[22001]: [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]String or binary data would be truncated. (SQL: insert into [Autores] ([codigo], [nombre], [estado]) values (, Organización Oficial de la Facultad de Medicina y de las Escuelas de OdontologÝa y Farmacia de Cochabamba, 1))
+
+=================================================================================================================
+
+Error al migrar nro: 2641
+
+=================================================================================================================
+
