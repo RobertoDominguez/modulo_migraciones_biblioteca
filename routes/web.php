@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\MigracionController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,18 @@ Route::middleware(['auth:web'])->group(function () {
 
         Route::get('/persona', [MigracionController::class, 'migracionPersona'])->name('migracion.persona');
         Route::post('/persona', [MigracionController::class, 'migrarPersonas'])->name('migrar.personas');
+    });
+
+    Route::prefix('inventario')->group(function () {
+        Route::get('/', [InventarioController::class, 'index'])->name('inventario.index');
+        Route::post('/store', [InventarioController::class, 'store'])->name('inventario.store');
+        
+        Route::post('/cerrar', [InventarioController::class, 'cerrar'])->name('inventario.cerrar');
+        
+        Route::get('/registrados/{inventario}', [InventarioController::class, 'registrados'])->name('inventario.registrados');
+        Route::get('/faltantes/{inventario}', [InventarioController::class, 'faltantes'])->name('inventario.faltantes');
+
+        
+
     });
 });

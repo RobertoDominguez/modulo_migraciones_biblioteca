@@ -2,338 +2,135 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
-        crossorigin="anonymous"></script>
-
-    <style>
-        body {
-            background-color: #fbfbfb;
-        }
-
-        @media (min-width: 991.98px) {
-            main {
-                padding-left: 240px;
-            }
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            padding: 58px 0 0;
-            /* Height of navbar */
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-            width: 240px;
-            z-index: 600;
-        }
-
-        @media (max-width: 991.98px) {
-            .sidebar {
-                width: 100%;
-            }
-        }
-
-        .sidebar .active {
-            border-radius: 5px;
-            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: 0.5rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-            /* Scrollable contents if viewport is shorter than content. */
-        }
-    </style>
-
-    @yield('header')
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Sistema de Biblioteca</title>
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
+        crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <!--Main Navigation-->
-    <header>
-
-
-        <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-            <div class="position-sticky">
-                <div class="list-group list-group-flush mx-3 mt-4">
-                    @if (\Request::is('/'))
-                        <a href="{{ route('menu') }}" class="list-group-item list-group-item-action py-2 ripple active"
-                            aria-current="true">
-                        @else
-                            <a href="{{ route('menu') }}" class="list-group-item list-group-item-action py-2 ripple"
-                                aria-current="true">
-                    @endif
-                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Tablero Principal</span>
-                    </a>
-
-                    @if (\Request::is('migracion/material'))
-                        <a href="{{ route('migracion.material') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('migracion.material') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Migracion de materiales</span>
-                    </a>
-
-                    @if (\Request::is('migracion/persona'))
-                        <a href="{{ route('migracion.persona') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('migracion.persona') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Migracion de personas</span>
-                    </a>
-
-                    {{-- @if (\Request::is('/visitas'))
-                        <a href="{{route('visita.salida')}}" class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{route('visita.salida')}}" class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Visitas por salir</span>
-                    </a>
-
-
-                    @if (\Request::is('/visitas'))
-                        <a href="{{route('visitas')}}" class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{route('visitas')}}" class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Visitas por Rango</span>
-                    </a>
-
-
-                    @if (\Request::is('/fichadas'))
-                        <a href="{{ route('fichadas') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('fichadas') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-building fa-fw me-3"></i><span>Fichadas por Rango</span></a> --}}
-
-
-
-
-                    {{-- @if (\Request::is('/marcaciones'))
-                        <a href="{{ route('marcaciones') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('marcaciones') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Marcaciones</span>
-                    </a>
-
-
-                    @if (\Request::is('/asistencias'))
-                        <a href="{{ route('asistencias',['nro'=>1]) }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('asistencias',['nro'=>1]) }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Asistencias Tipo 1</span>
-                    </a>
-
-                    @if (\Request::is('/asistencias'))
-                        <a href="{{ route('asistencias',['nro'=>2]) }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('asistencias',['nro'=>2]) }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Asistencias Tipo 2</span>
-                    </a>
-
-                    @if (\Request::is('/consultores'))
-                        <a href="{{ route('consultores') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('consultores') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Planilla Consultores</span>
-                    </a>
-
-                    @if (\Request::is('/planta'))
-                        <a href="{{ route('planta') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('planta') }}" class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Planilla Planta</span>
-                    </a>
-
-                    @if (\Request::is('/refrigerio'))
-                        <a href="{{ route('refrigerio') }}"
-                            class="list-group-item list-group-item-action py-2 ripple active">
-                        @else
-                            <a href="{{ route('refrigerio') }}"
-                                class="list-group-item list-group-item-action py-2 ripple">
-                    @endif
-                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Planilla Refrigerio</span>
-                    </a> --}}
-
-
-                    {{-- <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                        <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a> --}}
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Sistema de Biblioteca</a><button
+            class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i
+                class="fas fa-bars"></i></button><!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            {{-- <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                    aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                 </div>
-            </div>
-        </nav>
-        <!-- Sidebar -->
-
-        <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <!-- Brand -->
-                <a class="navbar-brand" href="#">
-                    {{-- <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25"
-                        alt="" loading="lazy" /> --}}
-                </a>
-                <!-- Search form -->
-                {{-- <form class="d-none d-md-flex input-group w-auto my-auto">
-                    <input autocomplete="off" type="search" class="form-control rounded"
-                        placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
-                    <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
-                </form> --}}
-
-                <!-- Right links -->
-                <ul class="navbar-nav ms-auto d-flex flex-row">
-                    <!-- Notification dropdown -->
-                    {{-- <li class="nav-item dropdown">
-                        <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#"
-                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            </div> --}}
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                        class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    {{-- <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Activity Log</a> --}}
+                    {{-- <div class="dropdown-divider"></div> --}}
+                    <form action="{{ route('logout.form') }}" method="POST">
+                        {{ csrf_field() }}
+                        <button class="dropdown-item">Cerrar Sesion</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Modulo de inventario</div>
+                        <a class="nav-link" href="{{ route('inventario.index') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Inventarios
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Some news</a></li>
-                            <li><a class="dropdown-item" href="#">Another news</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li> --}}
 
 
-
-                    <!-- Avatar -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
-                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('persona.png') }}" class="rounded-circle" height="22" alt=""
-                                loading="lazy" />
+                        <div class="sb-sidenav-menu-heading">Modulo de migraciones</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                            data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Migraciones
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            {{-- <form action="{{ route('logout.form') }}" method="POST">
-                                {{ csrf_field() }}
-                                <li><button class="dropdown-item">Cerrar Sesion</button></li>
-                            </form> --}}
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- Container wrapper -->
-        </nav>
-        <!-- Navbar -->
-    </header>
-    <!--Main Navigation-->
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('migracion.material') }}">Migrar Materiales</a>
+                                <a class="nav-link" href="{{ route('migracion.persona') }}">Migrar Personas</a>
+                            </nav>
+                        </div>
 
-    <!--Main layout-->
-    <main style="margin-top: 58px">
-        <div class="container pt-4">
-            @yield('content')
+
+
+                        {{-- <div class="sb-sidenav-menu-heading">Addons</div>
+                        <a class="nav-link" href="charts.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a><a class="nav-link" href="tables.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a> --}}
+
+
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Registrado como:</div>
+                    Administrator
+                </div>
+            </nav>
         </div>
-    </main>
-    <!--Main layout-->
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <h1 class="mt-4">@yield('title')</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">@yield('title')</li>
+                    </ol>
 
-    <!-- MDB -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
-    <script>
-        // Graph
-        var ctx = document.getElementById("myChart");
 
-        var myChart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: [
-                    "Sunday",
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                ],
-                datasets: [{
-                    data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-                    lineTension: 0,
-                    backgroundColor: "transparent",
-                    borderColor: "#007bff",
-                    borderWidth: 4,
-                    pointBackgroundColor: "#007bff",
-                }, ],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: false,
-                        },
-                    }, ],
-                },
-                legend: {
-                    display: false,
-                },
-            },
-        });
+
+                    @yield('content')
+
+                </div>
+            </main>
+            {{-- <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer> --}}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
-    @yield('script')
+    <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
+    <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/demo/datatables-demo.js') }}"></script>
 </body>
 
 </html>

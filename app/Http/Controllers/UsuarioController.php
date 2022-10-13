@@ -10,7 +10,7 @@ class UsuarioController extends Controller
 {
     public function loginView(Request $request)
     {
-        
+
         return view('login');
     }
 
@@ -30,11 +30,11 @@ class UsuarioController extends Controller
 
         // dd($user);
 
-        if ((strtoupper(md5($request->clave)) == $user->Clave || md5($request->clave) == $user->Clave) && ($user->Rol_Id==7)) {
+        if ((strtoupper(md5($request->clave)) == $user->Clave || md5($request->clave) == $user->Clave) && ($user->Rol_Id == 7)) {
 
             // dd($user);
 
-            Auth::login($user,false);
+            Auth::login($user, false);
 
             // dd(Auth::user());
             return redirect()->route('menu');
@@ -46,8 +46,11 @@ class UsuarioController extends Controller
             ->withInput(request(['nombre']));
     }
 
-    public function logout(){
+
+
+    public function logout()
+    {
         Auth::logout();
-        return redirect()->route('login');        
+        return redirect()->route('login');
     }
 }

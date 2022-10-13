@@ -1,0 +1,20 @@
+use dbBibliotecaNombreCambiado
+
+create table Inventario(
+	Id integer primary key identity (1,1),
+	f_ini datetime not null,
+	f_fin datetime,
+	cantidad integer,
+	faltantes integer
+);
+
+create table Ejemplar_Inventario(
+	Id integer not null primary key identity (1,1),
+	Id_Inventario integer not null,
+	Id_Ejemplar integer not null,
+		Foreign key (Id_Inventario) references Inventario(Id) on delete cascade on update cascade,
+		Foreign key (Id_Ejemplar) references Ejemplares(Id) on delete cascade on update cascade,
+
+	fecha_registro datetime,
+	existe bit not null
+);

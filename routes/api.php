@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InventarioControllerAPI;
+use App\Http\Controllers\UsuarioControllerAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/usuario/login',[UsuarioControllerAPI::class,'loginAPI']); //nombre,clave
+
+Route::post('/inventario/registrar',[InventarioControllerAPI::class,'registrar']); //rfid,nombre,clave
