@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\MigracionController;
+use App\Http\Controllers\ReportesPrestamoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,12 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/registrados/{inventario}', [InventarioController::class, 'registrados'])->name('inventario.registrados');
         Route::get('/faltantes/{inventario}', [InventarioController::class, 'faltantes'])->name('inventario.faltantes');
 
-        
+    });
 
+    Route::prefix('reporte')->group(function(){
+        Route::prefix('prestamo')->group(function(){
+            Route::get('/mensual', [ReportesPrestamoController::class, 'mensual'])->name('reporte.prestamo.mensual');
+            Route::get('/anual', [ReportesPrestamoController::class, 'anual'])->name('reporte.prestamo.anual');
+        });
     });
 });
