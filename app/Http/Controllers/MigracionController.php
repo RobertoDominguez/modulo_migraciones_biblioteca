@@ -154,28 +154,37 @@ class MigracionController extends Controller
                     $existeMaterial = Material::where('codigo', $elementos[0])->where('tipomaterial', $elementos[3])->get()->first();
 
 
-                    if (is_null($existeMaterial)) {
-                        $dataMaterial = [
-                            'codigo' => $elementos[0],
-                            'titulo' => $elementos[11],
-                            'resumen' => $elementos[42],
-                            //'fechaPublicacion' => $elementos[30],
-                            'idioma' => $idioma,
-                            'observacion' => '',
-                            // 'imagen'=>null,//$elementos[9],
-                            'editorial_id' => $editorial->Id,
-                            'pais_id' => $pais->Id,
-                            'clasificacion_id' => $clasificacion->Id,
-                            'autor_id' => $autor->Id,
-                            'imagen_url' => $elementos[9],
-                            'numpaginas' => 0,  //24 pero no es numerico, falta convertir
-                            'pdf_url' => $pdf, ////////filtrar ^u
-                            'tipomaterial' => $elementos[3],
-                        ];
+                    $dataMaterial = [
+                        'codigo' => $elementos[0],
+                        'titulo' => $elementos[11],
+                        'resumen' => $elementos[42],
+                        'idioma' => $idioma,
+                        'observacion' => '',
+                        // 'imagen'=>null,//$elementos[9],
+                        'editorial_id' => $editorial->Id,
+                        'pais_id' => $pais->Id,
+                        'clasificacion_id' => $clasificacion->Id,
+                        'autor_id' => $autor->Id,
+                        'imagen_url' => $elementos[9],
+                        'pdf_url' => $pdf, ////////filtrar ^u
+                        'tipomaterial' => $elementos[3],
+                    ];
 
-                        if ($elementos[30] != 's.f') {
-                            $dataMaterial['fechaPublicacion'] = $elementos[30];
-                        }
+                    if ($elementos[30] != 's.f') {
+                        $dataMaterial['fechaPublicacion'] = $elementos[30];
+                    }
+
+                    if ($elementos[3]=='S'){
+                        $dataMaterial['numpaginas']=MigracionController::numericoRevista($elementos[22]);
+                    }else{
+                        $dataMaterial['numpaginas']=MigracionController::numerico($elementos[24]);
+                    }
+
+                    
+
+
+                    if (is_null($existeMaterial)) {
+                        
 
                         $material = Material::create($dataMaterial);
 
@@ -232,6 +241,8 @@ class MigracionController extends Controller
 
                             Ejemplar::create($dataEj);
                         }
+                    }else{
+                        $existeMaterial->update($dataMaterial);
                     }
                 } catch (PDOException $e) {
 
@@ -256,6 +267,43 @@ class MigracionController extends Controller
         // return $cantidad_errores;
     }
 
+    public function numerico($str){
+        $res='';
+
+        for ($i=0; $i < strlen($str); $i++) { 
+            if (str_contains('1234567890', $str[$i])){
+                $res=$res.$str[$i];
+            }
+        }
+
+        if ($res==''){
+            return 0;
+        }
+
+        return intval($res);
+    }
+
+    public function numericoRevista($str){
+        $res='';
+        $res2='';
+
+        for ($i=0; $i < strlen($str); $i++) { 
+            if (str_contains('1234567890', $str[$i]) && strlen($res)==0 ){
+                $res=$res.$str[$i];
+            }
+
+            if (str_contains('1234567890', $str[$i]) && $res!='' ){
+                $res2=$res2.$str[$i];
+            }
+
+        }
+
+        if ($res==''){
+            return 0;
+        }
+
+        return intval($res2)-intval($res);
+    }
 
 
     public function migracionPersona()
