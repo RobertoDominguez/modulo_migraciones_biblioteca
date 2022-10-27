@@ -41,7 +41,15 @@
             {{ csrf_field() }}
 
             <!-- <input name="cpry" value="" placeholder="Codigo De Proyecto"> -->
-            <input name="year" value="" placeholder="AÑO">
+            {{-- <input name="year" value="" placeholder="AÑO"> --}}
+
+            <select name="year">
+
+                @for ($i = 2020; $i < 2060; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                @endfor
+
+            </select>
 
             <button class="button">Generar Reporte</button>
 

@@ -23,10 +23,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
         <!-- <style>
-            table.dataTable thead tr {
-                background-color: green;
-            }
-        </style> -->
+                    table.dataTable thead tr {
+                        background-color: green;
+                    }
+                </style> -->
         <style>
             table tfoot {
                 display: table-row-group;
@@ -41,8 +41,32 @@
             {{ csrf_field() }}
 
             <!-- <input name="cpry" value="" placeholder="Codigo De Proyecto"> -->
-            <input name="year" value="" placeholder="AÑO">
-            <input name="month" value="" placeholder="MES">
+
+            <select name="year">
+
+                @for ($i = 2020; $i < 2060; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                @endfor
+
+            </select>
+
+            <select name="month">
+                <option value="1">ENERO</option>
+                <option value="2">FEBRERO</option>
+                <option value="3">MARZO</option>
+                <option value="4">ABRIL</option>
+                <option value="5">MAYO</option>
+                <option value="6">JUNIO</option>
+                <option value="7">JULIO</option>
+                <option value="8">AGOSTO</option>
+                <option value="9">SEPTIEMBRE</option>
+                <option value="10">OCTUBRE</option>
+                <option value="11">NOVIEMBRE</option>
+                <option value="12">DICIEMBRE</option>
+            </select>
+
+            {{-- <input name="year" value="" placeholder="AÑO"> --}}
+            {{-- <input name="month" value="" placeholder="MES"> --}}
 
             <button class="button">Generar Reporte</button>
 
@@ -77,22 +101,23 @@
                     $i = 0;
                 @endphp
                 @foreach ($carreras as $carrera)
-                <tr>
+                    <tr>
 
-                    <td>{{ $carrera->Nombre }} </td>
-                    @for ($j = 0; $j < 31; $j++)
-                        <td>{{ $data[$i][$j] }}</td>
-                        @php
-                            $total=$total+$data[$i][$j];
-                            $totales[$i]=$totales[$i]+$data[$i][$j];
-                        @endphp @endfor
-                <td>{{ $total }} </td>
-                </tr>
+                        <td>{{ $carrera->Nombre }} </td>
+                        @for ($j = 0; $j < 31; $j++)
+                            <td>{{ $data[$i][$j] }}</td>
+                            @php
+                                $total = $total + $data[$i][$j];
+                                $totales[$i] = $totales[$i] + $data[$i][$j];
+                            @endphp
+                        @endfor
+                        <td>{{ $total }} </td>
+                    </tr>
 
-                @php
-                    $i = $i + 1;
-                    $total = 0;
-                @endphp
+                    @php
+                        $i = $i + 1;
+                        $total = 0;
+                    @endphp
                 @endforeach
 
 
@@ -158,22 +183,23 @@
                     $i = 0;
                 @endphp
                 @foreach ($carreras as $carrera)
-                <tr>
+                    <tr>
 
-                    <td>{{ $carrera->Nombre }} </td>
-                    @for ($j = 0; $j < 31; $j++)
-                        <td>{{ $data2[$i][$j] }}</td>
-                        @php
-                            $total=$total+$data2[$i][$j];
-                            $totales[$i]=$totales[$i]+$data2[$i][$j];
-                        @endphp @endfor
-                <td>{{ $total }} </td>
-                </tr>
+                        <td>{{ $carrera->Nombre }} </td>
+                        @for ($j = 0; $j < 31; $j++)
+                            <td>{{ $data2[$i][$j] }}</td>
+                            @php
+                                $total = $total + $data2[$i][$j];
+                                $totales[$i] = $totales[$i] + $data2[$i][$j];
+                            @endphp
+                        @endfor
+                        <td>{{ $total }} </td>
+                    </tr>
 
-                @php
-                    $i = $i + 1;
-                    $total = 0;
-                @endphp
+                    @php
+                        $i = $i + 1;
+                        $total = 0;
+                    @endphp
                 @endforeach
 
 
