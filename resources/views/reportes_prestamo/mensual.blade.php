@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"> --}}
 
         <!-- <style>
                     table.dataTable thead tr {
@@ -68,7 +68,7 @@
             {{-- <input name="year" value="" placeholder="AÑO"> --}}
             {{-- <input name="month" value="" placeholder="MES"> --}}
 
-            <button class="button">Generar Reporte</button>
+            <button class="btn btn-primary">Generar Reporte</button>
 
         </form>
         <br>

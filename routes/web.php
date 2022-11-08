@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExportacionController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\MigracionController;
 use App\Http\Controllers\ReportesPrestamoController;
@@ -45,18 +46,32 @@ Route::middleware(['auth:web'])->group(function () {
     Route::prefix('inventario')->group(function () {
         Route::get('/', [InventarioController::class, 'index'])->name('inventario.index');
         Route::post('/store', [InventarioController::class, 'store'])->name('inventario.store');
-        
+
         Route::post('/cerrar', [InventarioController::class, 'cerrar'])->name('inventario.cerrar');
-        
+
         Route::get('/registrados/{inventario}', [InventarioController::class, 'registrados'])->name('inventario.registrados');
         Route::get('/faltantes/{inventario}', [InventarioController::class, 'faltantes'])->name('inventario.faltantes');
-
     });
 
-    Route::prefix('reporte')->group(function(){
-        Route::prefix('prestamo')->group(function(){
+    Route::prefix('reporte')->group(function () {
+        Route::prefix('prestamo')->group(function () {
             Route::get('/mensual', [ReportesPrestamoController::class, 'mensual'])->name('reporte.prestamo.mensual');
             Route::get('/anual', [ReportesPrestamoController::class, 'anual'])->name('reporte.prestamo.anual');
+        });
+    });
+
+
+    Route::prefix('exportacion')->group(function () {
+        Route::prefix('ejemplares')->group(function () {
+            Route::get('/libros', [ExportacionController::class, 'ejemplares_libros'])->name('exportacion.ejemplares.libros');
+            Route::get('/revistas', [ExportacionController::class, 'ejemplares_revistas'])->name('exportacion.ejemplares.revistas');
+            Route::get('/tesis', [ExportacionController::class, 'ejemplares_tesis'])->name('exportacion.ejemplares.tesis');
+        });
+
+        Route::prefix('materiales')->group(function () {
+            Route::get('/libros', [ExportacionController::class, 'materiales_libros'])->name('exportacion.materiales.libros');
+            Route::get('/revistas', [ExportacionController::class, 'materiales_revistas'])->name('exportacion.materiales.revistas');
+            Route::get('/tesis', [ExportacionController::class, 'materiales_tesis'])->name('exportacion.materiales.tesis');
         });
     });
 });

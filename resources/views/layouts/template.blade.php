@@ -90,6 +90,37 @@
                         </div>
 
 
+                        <div class="sb-sidenav-menu-heading">Modulo de Exportacion</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                            data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Exportar Ejemplares
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('exportacion.ejemplares.libros') }}">Libros</a>
+                                <a class="nav-link" href="{{ route('exportacion.ejemplares.revistas') }}">Revistas</a>
+                                <a class="nav-link" href="{{ route('exportacion.ejemplares.tesis') }}">Tesis</a>
+                            </nav>
+                        </div>
+
+                       <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                            data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts4">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Exportar Materiales
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('exportacion.materiales.libros') }}">Libros</a>
+                                <a class="nav-link" href="{{ route('exportacion.materiales.revistas') }}">Revistas</a>
+                                <a class="nav-link" href="{{ route('exportacion.materiales.tesis') }}">Tesis</a>
+                            </nav>
+                        </div>
+
                         {{-- <div class="sb-sidenav-menu-heading">Addons</div>
                         <a class="nav-link" href="charts.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

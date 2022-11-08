@@ -18,7 +18,6 @@ use PDO;
 use PDOException;
 use ReflectionClass;
 
-use function PHPSTORM_META\map;
 
 class MigracionController extends Controller
 {
@@ -59,7 +58,7 @@ class MigracionController extends Controller
         while (!feof($file)) {
             $nro = $nro + 1;
 
-            $linea = utf8_encode(fgets($file));
+            $linea = fgets($file);//utf8_encode(fgets($file));
             $elementos = explode("|", $linea);
 
             if (count($elementos) == 54) {
@@ -156,7 +155,7 @@ class MigracionController extends Controller
 
                     $dataMaterial = [
                         'codigo' => $elementos[0],
-                        'titulo' => $elementos[11],
+                        'titulo' => str_replace("^ies", "", $elementos[11]),
                         'resumen' => $elementos[42],
                         'idioma' => $idioma,
                         'observacion' => '',
@@ -195,37 +194,46 @@ class MigracionController extends Controller
                         ]);
 
 
-                        $rowsEjemplares = explode("^", $elementos[5]);
+                        $rowsEjemplares = explode("&", $elementos[5]);
 
-
-                        $ejemplaresData = [];
-                        $data = [
-                            'codigo' => '',
-                            'codRFID' => ''
-                        ];
-
-                        foreach ($rowsEjemplares as $r) {
-                            if (
-                                substr($r, 0, 1) != "a" && substr($r, 0, 1) != "f" && substr($r, 0, 1) != "v" && substr($r, 0, 1) != "t"
-                                && substr($r, 0, 1) != "m" && substr($r, 0, 1) != "n" && substr($r, 0, 1) != "r"
-                            ) {
-                                $data['codigo'] = $r;
-                            }
-
-                            if (substr($r, 0, 1) == "r") {
-                                $rfid = substr($r, 1, strlen($r) - 1);;
-
-                                $rfid_arr = explode("&", $rfid);
-                                if (count($rfid_arr) > 0) {
-                                    $rfid = $rfid_arr[0];
-                                }
-
-                                $data['codRFID'] = $rfid;
-                                $ejemplaresData[] = $data;
-                            }
-                        }
 
                         
+                        $ejemplaresData = [];
+                        
+
+                        foreach ($rowsEjemplares as $row){
+
+                            $rowsEjemplar=explode('^',$row);
+                            $data = [
+                                'codigo' => '',
+                                'codRFID' => ''
+                            ];
+
+                            foreach ($rowsEjemplar as $r) {
+                                if (
+                                    substr($r, 0, 1) != "a" && substr($r, 0, 1) != "f" && substr($r, 0, 1) != "v" && substr($r, 0, 1) != "t"
+                                    && substr($r, 0, 1) != "m" && substr($r, 0, 1) != "n" && substr($r, 0, 1) != "r" && $data['codigo']==''
+                                ) {
+                                    $data['codigo'] = $r;
+                                }
+    
+                                if (substr($r, 0, 1) == "r") {
+                                    $rfid = substr($r, 1, strlen($r) - 1);;
+    
+                                    $rfid_arr = explode("&", $rfid);
+                                    if (count($rfid_arr) > 0) {
+                                        $rfid = $rfid_arr[0];
+                                    }
+    
+                                    $data['codRFID'] = $rfid;
+                                    $ejemplaresData[] = $data;
+                                }
+                            }
+
+                        }
+
+
+
                         foreach ($ejemplaresData as $e) {
                             $dataEj = [
                                 'codigo' => $e['codigo'], //inicio
