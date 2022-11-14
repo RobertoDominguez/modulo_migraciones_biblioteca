@@ -61,7 +61,7 @@ Ejemplares de Libros
                                 <th>Codigo</th>
                                 <th>RFID</th>
                                 <th>Titulo</th>
-                                <th>Clasificacion</th>
+                                <th>Ubicacion</th>
                                 <th>Tipo Material</th>
                             </tr>
                         </thead>
@@ -75,7 +75,7 @@ Ejemplares de Libros
                                     <td>{{ $ejemplar->Codigo }}</td>
                                     <td>{{ $ejemplar->CodRFID}}</td>
                                     <td>{{ $ejemplar->Titulo }}</td>
-                                    <td>{{ $ejemplar->Nombre }}</td>
+                                    <td>{{ $ejemplar->Ubicacion }}</td>
                                     <td>{{ $ejemplar->TipoMaterial }}</td>
                                 </tr>
                             @endforeach
@@ -88,7 +88,7 @@ Ejemplares de Libros
                                 <th>Codigo</th>
                                 <th>RFID</th>
                                 <th>Titulo</th>
-                                <th>Clasificacion</th>
+                                <th>Ubicacion</th>
                                 <th>Tipo Material</th>
                             </tr>
                         </tfoot>

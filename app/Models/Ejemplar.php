@@ -14,7 +14,7 @@ class Ejemplar extends Model
     protected $primaryKey = 'Id';
 
     protected $fillable=[
-        'codigo',
+        'Codigo',
         'CodRFID',
         'CodBarras',
         'TipoPrestamo',

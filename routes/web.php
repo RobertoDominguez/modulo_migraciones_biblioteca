@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EjemplarController;
 use App\Http\Controllers\ExportacionController;
 use App\Http\Controllers\InventarioController;
 use App\Http\Controllers\MigracionController;
@@ -73,5 +74,26 @@ Route::middleware(['auth:web'])->group(function () {
             Route::get('/revistas', [ExportacionController::class, 'materiales_revistas'])->name('exportacion.materiales.revistas');
             Route::get('/tesis', [ExportacionController::class, 'materiales_tesis'])->name('exportacion.materiales.tesis');
         });
+    });
+
+
+    Route::prefix('administracion')->group(function () {
+        Route::prefix('ejemplares')->group(function () {
+            Route::get('/libros', [EjemplarController::class, 'index_libros'])->name('administracion.ejemplares.index_libros');
+            Route::get('/revistas', [EjemplarController::class, 'index_revistas'])->name('administracion.ejemplares.index_revistas');
+            Route::get('/tesis', [EjemplarController::class, 'index_tesis'])->name('administracion.ejemplares.index_tesis');
+            
+            Route::get('/edit/{ejemplar}', [EjemplarController::class, 'edit'])->name('administracion.ejemplares.edit');
+
+            Route::post('/update/{ejemplar}', [EjemplarController::class, 'update'])->name('administracion.ejemplares.update');
+
+            Route::get('/materiales', [EjemplarController::class, 'materiales'])->name('administracion.ejemplares.materiales');
+            Route::get('/create/{material}', [EjemplarController::class, 'create'])->name('administracion.ejemplares.create');
+            Route::post('/', [EjemplarController::class, 'store'])->name('administracion.ejemplares.store');
+
+            Route::get('/delete/{ejemplar}', [EjemplarController::class, 'delete'])->name('administracion.ejemplares.delete');            
+        });
+
+
     });
 });

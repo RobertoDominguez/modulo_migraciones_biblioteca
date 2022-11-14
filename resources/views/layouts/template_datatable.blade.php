@@ -122,6 +122,24 @@
                             </nav>
                         </div>
 
+
+                        <div class="sb-sidenav-menu-heading">Modulo de Administracion</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                            data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts5">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Ejemplares
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne"
+                            data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('administracion.ejemplares.materiales') }}">Nuevo Ejemplar</a>
+                                <a class="nav-link" href="{{ route('administracion.ejemplares.index_libros') }}">Libros</a>
+                                <a class="nav-link" href="{{ route('administracion.ejemplares.index_revistas') }}">Revistas</a>
+                                <a class="nav-link" href="{{ route('administracion.ejemplares.index_tesis') }}">Tesis</a>                                
+                            </nav>
+                        </div>
+
                         {{-- <div class="sb-sidenav-menu-heading">Addons</div>
                         <a class="nav-link" href="charts.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

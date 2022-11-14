@@ -1,7 +1,7 @@
 @extends('layouts.template_datatable')
 
 @section('title')
-Ejemplares de Tesis
+    Materiales
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Ejemplares de Tesis
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ejemplares de Tesis</title>
+        <title>Materiales</title>
 
         <!-- DOCUMENTACION DE TABLAS -->
         <!-- https://datatables.net/extensions/buttons/examples/print/simple.html -->
@@ -23,10 +23,10 @@ Ejemplares de Tesis
         {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"> --}}
 
         <!-- <style>
-            table.dataTable thead tr {
-                background-color: green;
-            }
-        </style> -->
+                    table.dataTable thead tr {
+                        background-color: green;
+                    }
+                </style> -->
         <style>
             table tfoot {
                 display: table-row-group;
@@ -42,66 +42,79 @@ Ejemplares de Tesis
                 <div class="row">
                     <div class="col">
                         <i class="fas fa-table mr-1"></i>
-                        Ejemplares de Tesis
+                        Materiales
                     </div>
-    
-    
+
+
                 </div>
-    
-    
+
+
             </div>
-    
+
             <div class="card-body">
                 <div class="table-responsive">
                     {{-- <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"> --}}
-                    <table id="example"  style="width:100%" class="table table-bordered" cellspacing="0">
+                    <table id="example" style="width:100%" class="table table-bordered" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Codigo</th>
-                                <th>RFID</th>
                                 <th>Titulo</th>
-                                <th>Ubicacion</th>
-                                <th>Tipo Material</th>
+                                <th>FechaPublicacion</th>
+                                <th>Idioma</th>
+                                <th>Editorial</th>
+                                <th>Pais</th>
+                                <th>Clasificacion</th>
+                                <th>Autor</th>
+                                <th>NumPaginas</th>
+                                <th>Nuevo Ejemplar</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
-    
-                            @foreach ($ejemplares as $ejemplar)
+
+                            @foreach ($materiales as $material)
                                 <tr>
-    
-                                    <td>{{ $ejemplar->Id }}</td>
-                                    <td>{{ $ejemplar->Codigo }}</td>
-                                    <td>{{ $ejemplar->CodRFID}}</td>
-                                    <td>{{ $ejemplar->Titulo }}</td>
-                                    <td>{{ $ejemplar->Ubicacion }}</td>
-                                    <td>{{ $ejemplar->TipoMaterial }}</td>
+                                        <td>{{ $material->Id }}</td>
+                                        <td>{{ $material->Codigo }}</td>
+                                        <td>{{ $material->Titulo }}</td>
+                                        <td>{{ $material->FechaPublicacion }}</td>
+                                        <td>{{ $material->Idioma }}</td>
+                                        <td>{{ $material->Editorial }}</td>
+                                        <td>{{ $material->Pais }}</td>
+                                        <td>{{ $material->Clasificacion }}</td>
+                                        <td>{{ $material->Autor }}</td>
+                                        <td>{{ $material->NumPaginas }}</td>
+                                        <td><a class="btn btn-primary" href="{{ route('administracion.ejemplares.create', $material->Id) }}">Crear</a></td>
                                 </tr>
                             @endforeach
-    
-    
+
+
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>ID</th>
                                 <th>Codigo</th>
-                                <th>RFID</th>
                                 <th>Titulo</th>
-                                <th>Ubicacion</th>
-                                <th>Tipo Material</th>
+                                <th>FechaPublicacion</th>
+                                <th>Idioma</th>
+                                <th>Editorial</th>
+                                <th>Pais</th>
+                                <th>Clasificacion</th>
+                                <th>Autor</th>
+                                <th>NumPaginas</th>
+                                <th>Nuevo Ejemplar</th>
                             </tr>
                         </tfoot>
                     </table>
 
-                    
                 </div>
             </div>
         </div>
 
 
 
-        
+
 
 
 
